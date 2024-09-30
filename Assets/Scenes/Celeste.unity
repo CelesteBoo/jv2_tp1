@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 282840816}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -458,8 +458,7 @@ MonoBehaviour:
   m_StreamingVersion: 20230301
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 1047458478839893256, guid: 15f1abdea9520714bbabf636431e61cd,
-      type: 3}
+    TrackingTarget: {fileID: 2065147132}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -511,7 +510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScanRecursively: 1
   SuppressInputWhileBlending: 1
-  IgnoreTimeScale: 1
+  IgnoreTimeScale: 0
   m_ControllerManager:
     Controllers:
     - Name: Look Orbit X
@@ -1697,6 +1696,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebdb77b9bebedbe6eb0742bed57d3ddc, type: 3}
+--- !u!4 &2065147132 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1047458478839893256, guid: 15f1abdea9520714bbabf636431e61cd,
+    type: 3}
+  m_PrefabInstance: {fileID: 3476980711025946513}
+  m_PrefabAsset: {fileID: 0}
 --- !u!33 &47871905454500681
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2902,6 +2907,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365218036580928891, guid: 15f1abdea9520714bbabf636431e61cd,
+        type: 3}
+      propertyPath: m_StepOffset
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7091682358994165224, guid: 15f1abdea9520714bbabf636431e61cd,
         type: 3}

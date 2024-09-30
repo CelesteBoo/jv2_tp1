@@ -3677,6 +3677,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1047458478839893256}
   - component: {fileID: 2365218036580928891}
+  - component: {fileID: 8187392090773789339}
   m_Layer: 0
   m_Name: SpaceMarine
   m_TagString: Untagged
@@ -3725,7 +3726,23 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 6, z: 0}
+  m_Center: {x: 0, y: 6.2, z: 0}
+--- !u!114 &8187392090773789339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7091682358994165224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e8d8633936a664fab636dfcf7800e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 30
+  rotationSpeed: 0.1
+  moveAction: {fileID: -1680190386980627800, guid: 04cc15706f63de54b99fedd88a3cbe71,
+    type: 3}
 --- !u!1 &7158532013640517742
 GameObject:
   m_ObjectHideFlags: 0
