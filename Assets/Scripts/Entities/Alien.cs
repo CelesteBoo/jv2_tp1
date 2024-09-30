@@ -14,11 +14,23 @@ public class Alien : MonoBehaviour
     private void Awake()
     {
         navAgent = GetComponent<NavMeshAgent>();
+        navAgent.enabled = false;
     }
 
     private void Update()
     {
-        // Target should always look directly at the target no matter where it is.
-        navAgent.destination = target.transform.position;
+        // Alien needs animation.
+
+        // Alien should always look directly at the target no matter where it is.
+
+        if (navAgent.enabled == true)
+        {
+            navAgent.destination = target.transform.position;
+            return;
+        }
+
+        // Alien shouldn't reactivate navAgent with an hardcoded value.
+        if (transform.position.y <= -72)
+            navAgent.enabled = true;
     }
 }
