@@ -21,8 +21,6 @@ public class Alien : MonoBehaviour
     {
         // Alien needs animation.
 
-        // Alien should always look directly at the target no matter where it is.
-
         if (navAgent.enabled == true)
         {
             navAgent.destination = target.transform.position;
