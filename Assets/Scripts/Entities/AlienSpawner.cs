@@ -19,8 +19,7 @@ public class AlienSpawner : MonoBehaviour
             var alien = alienPrefab.Get();
             if (alien != null)
             {
-                alien.transform.position = transform.position;
-                alien.transform.rotation = Quaternion.identity;
+                alien.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
             }
         }
     }
