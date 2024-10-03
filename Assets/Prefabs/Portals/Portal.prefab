@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2468160716464058411}
   - component: {fileID: 6748844602351822761}
   - component: {fileID: 630857118800871598}
+  - component: {fileID: -4370264685985663995}
   - component: {fileID: 2208151352779592422}
   m_Layer: 0
   m_Name: Portal
@@ -87,6 +88,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-4370264685985663995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3136470708110425690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ea5644c8afade4a93575719323805f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alienPrefab: {fileID: 616056485553046870, guid: ebdb77b9bebedbe6eb0742bed57d3ddc,
+    type: 3}
 --- !u!135 &2208151352779592422
 SphereCollider:
   m_ObjectHideFlags: 0
