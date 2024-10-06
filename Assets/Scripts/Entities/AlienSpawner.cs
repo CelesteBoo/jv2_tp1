@@ -16,11 +16,13 @@ public class AlienSpawner : MonoBehaviour
     {
         if (isActiveAndEnabled)
         {
-            var alien = alienPrefab.Get();
+            alienPrefab.Set(transform.position);
+            /*var alien = alienPrefab.Get();
             if (alien != null)
             {
+                Debug.Log(transform.position);
                 alien.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
-            }
+            }*/
         }
     }
 }

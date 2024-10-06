@@ -29,6 +29,21 @@ public class ObjectPool : MonoBehaviour
         return null;
     }
 
+    public void Set(Vector3 position)
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            var child = transform.GetChild(i).gameObject;
+            if (child.activeSelf == false)
+            {
+                child.transform.parent = null;
+                child.transform.SetPositionAndRotation(position, Quaternion.identity);
+                child.SetActive(true);
+                return;
+            }
+        }
+    }
+
     public void Release(GameObject instance)
     {
         instance.SetActive(false);

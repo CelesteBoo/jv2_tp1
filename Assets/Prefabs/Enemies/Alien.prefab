@@ -184,8 +184,9 @@ GameObject:
   m_Component:
   - component: {fileID: 616056485553046867}
   - component: {fileID: -760521247316477208}
-  - component: {fileID: -5449991311700371956}
   - component: {fileID: 3439143315923185926}
+  - component: {fileID: -7376410220886981445}
+  - component: {fileID: -5449991311700371956}
   m_Layer: 0
   m_Name: Alien
   m_TagString: Untagged
@@ -232,19 +233,6 @@ NavMeshAgent:
   m_BaseOffset: 2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &-5449991311700371956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616056485553046870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca25cd1b002be2a4a9eda55556ca3012, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 7091682358994165224, guid: 15f1abdea9520714bbabf636431e61cd, type: 3}
 --- !u!54 &3439143315923185926
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -272,6 +260,43 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &-7376410220886981445
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616056485553046870}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-5449991311700371956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616056485553046870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca25cd1b002be2a4a9eda55556ca3012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 7091682358994165224, guid: 15f1abdea9520714bbabf636431e61cd, type: 3}
+  floorLevel: -72
+  pickupSpawnChance: 5
+  pickupSpawnHeightAboveAlien: 5
 --- !u!1 &616056485579276216
 GameObject:
   m_ObjectHideFlags: 0
