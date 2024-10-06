@@ -17,26 +17,32 @@ public class PickupSpawner : MonoBehaviour
 
     public void SpawnRandomPickup(Vector3 position)
     {
+        // Sometimes spawns multiple collectibles.
+        // Collectibles slowly spawn lower and lower.
         // Sometimes it spawns both armor and health. Must fix this.
+
         var index = Random.Range(0, 4);
-        GameObject pickup;
+        //GameObject pickup;
         position.y += 5;
         switch (index)
         {
             case 1:
-                pickup = pickupAmmoObjectPool.Get();
+                pickupAmmoObjectPool.Set(position);
+                /*pickup = pickupAmmoObjectPool.Get();
                 if (pickup != null)
-                    pickup.transform.SetPositionAndRotation(position, Quaternion.identity);
+                    pickup.transform.SetPositionAndRotation(position, Quaternion.identity);*/
                 return;
             case 2:
-                pickup = pickupArmorObjectPool.Get();
+                pickupArmorObjectPool.Set(position);
+                /*pickup = pickupArmorObjectPool.Get();
                 if (pickup != null)
-                    pickup.transform.SetPositionAndRotation(position, Quaternion.identity);
+                    pickup.transform.SetPositionAndRotation(position, Quaternion.identity);*/
                 return;
             case 3:
-                pickup = pickupHealthObjectPool.Get();
+                pickupArmorObjectPool.Set(position);
+                /*pickup = pickupHealthObjectPool.Get();
                 if (pickup != null)
-                    pickup.transform.SetPositionAndRotation(position, Quaternion.identity);
+                    pickup.transform.SetPositionAndRotation(position, Quaternion.identity);*/
                 return;
         }
     }

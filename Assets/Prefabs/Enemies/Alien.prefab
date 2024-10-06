@@ -296,7 +296,6 @@ MonoBehaviour:
   target: {fileID: 7091682358994165224, guid: 15f1abdea9520714bbabf636431e61cd, type: 3}
   floorLevel: -72
   pickupSpawnChance: 5
-  pickupSpawnHeightAboveAlien: 5
 --- !u!1 &616056485579276216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,7 +1432,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695290991158068871}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3a8f5e4e92cfdd146b2c19ccde20818f, type: 2}
   m_CullingMode: 0
@@ -1668,7 +1667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &629601535310525731
 Transform:
   m_ObjectHideFlags: 0

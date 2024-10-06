@@ -21,19 +21,28 @@ public class Alien : MonoBehaviour
 
     public Vector3 Velocity => navAgent.velocity;
 
+    private Awaitable routine;
+    private ParticleSystem particles;
+    private GameObject body;
+
     private void Awake()
     {
         alienObjectPool = Finder.AlienObjectPool;
         pickupSpawner = Finder.PickupSpawner;
 
+        particles = GetComponentInChildren<ParticleSystem>();
         navAgent = GetComponent<NavMeshAgent>();
+        body = GetComponentInChildren<Animator>().gameObject;
+    }
+
+    private void OnEnable()
+    {
         navAgent.enabled = false;
+        particles.Stop();
     }
 
     private void Update()
     {
-        // Alien needs animation.
-
         if (navAgent.enabled == true)
         {
             navAgent.destination = target.transform.position;
@@ -51,12 +60,26 @@ public class Alien : MonoBehaviour
         var player = collision.gameObject.GetComponent<Player>();
         if (player is not null)
         {
-            alienObjectPool.Release(gameObject);
-
             // Aliens need to maybe drop a pickup when they die.
             var index = Random.Range(0, 100);
             if (index < pickupSpawnChance)
                 pickupSpawner.SpawnRandomPickup(transform.position);
+
+            routine = KillRoutine();
+        }
+    }
+
+    private async Awaitable KillRoutine()
+    {
+        while (isActiveAndEnabled)
+        {
+            body.SetActive(false);
+            particles.Play();
+
+            await Awaitable.WaitForSecondsAsync(particles.main.duration);
+            body.SetActive(true);
+
+            alienObjectPool.Release(gameObject);
         }
     }
 }
