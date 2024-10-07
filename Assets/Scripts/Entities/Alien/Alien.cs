@@ -58,9 +58,8 @@ public class Alien : MonoBehaviour
     {
         // Bullets should also kill the aliens.
         var player = collision.gameObject.GetComponent<Player>();
-        if (player is not null)
+        if (player != null)
         {
-            // Aliens need to maybe drop a pickup when they die.
             var index = Random.Range(0, 100);
             if (index < pickupSpawnChance)
                 pickupSpawner.SpawnRandomPickup(transform.position);

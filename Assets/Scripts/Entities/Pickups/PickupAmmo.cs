@@ -22,8 +22,7 @@ public class PickupAmmo : MonoBehaviour
             timeSinceSpawned = 0;
         }
 
-        // Slows down afterwards for some reason. Must find how to fix it.
-        transform.Rotate(0, transform.rotation.y + rotationSpeed, 0);
+        transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
     }
 
     private void OnTriggerEnter(Collider other)

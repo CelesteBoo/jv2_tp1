@@ -39,7 +39,7 @@ public class PickupSpawner : MonoBehaviour
                     pickup.transform.SetPositionAndRotation(position, Quaternion.identity);*/
                 return;
             case 3:
-                pickupArmorObjectPool.Set(position);
+                pickupHealthObjectPool.Set(position);
                 /*pickup = pickupHealthObjectPool.Get();
                 if (pickup != null)
                     pickup.transform.SetPositionAndRotation(position, Quaternion.identity);*/
