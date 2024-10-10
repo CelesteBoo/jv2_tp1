@@ -14,6 +14,11 @@ public class Alien : MonoBehaviour
     [Header("Pickup")]
     [SerializeField] private float pickupSpawnChance = 5;
 
+    [Header("AlienDeathSound")]
+    [SerializeField] private AudioClip deathClip;
+
+    private AudioSource audioSource;
+
     private NavMeshAgent navAgent;
 
     private ObjectPool alienObjectPool;
@@ -30,6 +35,7 @@ public class Alien : MonoBehaviour
         alienObjectPool = Finder.AlienObjectPool;
         pickupSpawner = Finder.PickupSpawner;
 
+        audioSource = GetComponent<AudioSource>();
         particles = GetComponentInChildren<ParticleSystem>();
         navAgent = GetComponent<NavMeshAgent>();
         body = GetComponentInChildren<Animator>().gameObject;
@@ -58,7 +64,7 @@ public class Alien : MonoBehaviour
     {
         // Bullets should also kill the aliens.
         var player = collision.gameObject.GetComponent<Player>();
-        if (player != null)
+        if (body.activeSelf && player != null)
         {
             var index = Random.Range(0, 100);
             if (index < pickupSpawnChance)
@@ -74,10 +80,11 @@ public class Alien : MonoBehaviour
         {
             body.SetActive(false);
             particles.Play();
+            audioSource.PlayOneShot(deathClip);
 
             await Awaitable.WaitForSecondsAsync(particles.main.duration);
             body.SetActive(true);
-
+            
             alienObjectPool.Release(gameObject);
         }
     }
