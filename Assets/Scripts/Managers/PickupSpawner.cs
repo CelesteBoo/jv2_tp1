@@ -4,6 +4,8 @@ using Random = UnityEngine.Random;
 
 public class PickupSpawner : MonoBehaviour
 {
+    [SerializeField] private float heightABoveAlien = 5;
+
     private ObjectPool pickupAmmoObjectPool;
     private ObjectPool pickupArmorObjectPool;
     private ObjectPool pickupHealthObjectPool;
@@ -23,7 +25,7 @@ public class PickupSpawner : MonoBehaviour
 
         var index = Random.Range(0, 4);
         //GameObject pickup;
-        position.y += 5;
+        position.y += heightABoveAlien;
         switch (index)
         {
             case 1:

@@ -58,7 +58,6 @@ public class Finder : MonoBehaviour
         }
     }
 
-
     private static EventChannels eventChannels;
 
     public static EventChannels EventChannels
@@ -71,6 +70,21 @@ public class Finder : MonoBehaviour
                                         .GetComponent<EventChannels>();
             }
             return eventChannels;
+        }
+    }
+
+    private static InterfaceManager interfaceManager;
+
+    public static InterfaceManager InterfaceManager
+    {
+        get
+        {
+            if (interfaceManager == null)
+            {
+                interfaceManager = GameObject.FindWithTag("GameController")?
+                                        .GetComponent<InterfaceManager>();
+            }
+            return interfaceManager;
         }
     }
 
@@ -87,4 +101,6 @@ public class Finder : MonoBehaviour
             return pickupSpawner;
         }
     }
+
+
 }
