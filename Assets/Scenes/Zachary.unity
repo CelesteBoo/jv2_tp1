@@ -247,7 +247,7 @@ PrefabInstance:
     - target: {fileID: 7171504067025027473, guid: 72bb4530bfcf4f85caa83e860f084754,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7551864084136434475, guid: 72bb4530bfcf4f85caa83e860f084754,
         type: 3}
@@ -1455,6 +1455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 6319660280540615819, guid: 2ef37418cfb962cd8bca74555d24c6d6, type: 3}
   objectCount: 20
+  deathClip: {fileID: 8300000, guid: 55bc10006917fbe46a89f70a93cd4e1f, type: 3}
 --- !u!4 &543156783
 Transform:
   m_ObjectHideFlags: 0
@@ -1815,6 +1816,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 2044241654}
   objectCount: 20
+  deathClip: {fileID: 8300000, guid: 8f252cb39a2a2da44aefd3d09599af53, type: 3}
 --- !u!4 &846747900
 Transform:
   m_ObjectHideFlags: 0
@@ -2313,6 +2315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 7171504067025027473, guid: 72bb4530bfcf4f85caa83e860f084754, type: 3}
   objectCount: 20
+  deathClip: {fileID: 8300000, guid: 55bc10006917fbe46a89f70a93cd4e1f, type: 3}
 --- !u!4 &1104380405
 Transform:
   m_ObjectHideFlags: 0
@@ -3567,6 +3570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 5922521165027202404, guid: 17fe7153f20d02b4a9a34dc62a37533c, type: 3}
   objectCount: 20
+  deathClip: {fileID: 8300000, guid: 55bc10006917fbe46a89f70a93cd4e1f, type: 3}
 --- !u!4 &1816820338
 Transform:
   m_ObjectHideFlags: 0

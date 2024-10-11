@@ -16,6 +16,18 @@ public class Finder : MonoBehaviour
         }
     }
 
+    public static ObjectPool GetPickup(string tagName)
+    {
+        if (tagName == "Ammo")
+            return PickupAmmoObjectPool;
+        else if (tagName == "Armor")
+            return PickupArmorObjectPool;
+        else if (tagName == "Health")
+            return PickupHealthObjectPool;
+
+        return null;
+    }
+
     private static ObjectPool pickupAmmoObjectPool;
 
     public static ObjectPool PickupAmmoObjectPool

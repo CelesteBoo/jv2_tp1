@@ -14,7 +14,7 @@ public class Alien : MonoBehaviour
     [Header("Pickup")]
     [SerializeField] private float pickupSpawnChance = 5;
 
-    [Header("AlienDeathSound")]
+    [Header("Alien Death Sound")]
     [SerializeField] private AudioClip deathClip;
 
     private AudioSource audioSource;

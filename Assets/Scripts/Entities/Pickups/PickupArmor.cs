@@ -2,15 +2,32 @@ using UnityEngine;
 
 public class PickupArmor : MonoBehaviour
 {
-    [SerializeField] private float rotationSpeed = 1f;
+    [SerializeField] private float rotationSpeed = 100f;
     [SerializeField] private float livingTime = 15.0f;
 
+    [Header("Audio Clips")]
+    [SerializeField] private AudioClip spawnClip;
+    [SerializeField] private AudioClip pickupClip;
+
+    private AudioSource audioSource;
+
     private float timeSinceSpawned = 0;
+    private bool isPickedUp;
+
     private ObjectPool pickupArmorObjectPool;
+
+    private Awaitable routine;
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         pickupArmorObjectPool = Finder.PickupArmorObjectPool;
+    }
+
+    private void OnEnable()
+    {
+        isPickedUp = false;
+        audioSource.PlayOneShot(spawnClip);
     }
 
     void Update()
@@ -28,10 +45,20 @@ public class PickupArmor : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var player = other.GetComponent<Player>();
-        if (player is not null)
+        if (player != null && !isPickedUp)
         {
             // Must make the player get the bonus.
+            routine = PickupRoutine();
+        }
+    }
 
+    private async Awaitable PickupRoutine()
+    {
+        while (isActiveAndEnabled)
+        {
+            isPickedUp = true;
+            audioSource.PlayOneShot(pickupClip);
+            await Awaitable.WaitForSecondsAsync(pickupClip.length);
             pickupArmorObjectPool.Release(gameObject);
         }
     }

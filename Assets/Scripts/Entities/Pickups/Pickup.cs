@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PickupHealth : MonoBehaviour
+public class Pickup : MonoBehaviour
 {
     [SerializeField] private float rotationSpeed = 100f;
     [SerializeField] private float livingTime = 15.0f;
@@ -9,19 +9,21 @@ public class PickupHealth : MonoBehaviour
     [SerializeField] private AudioClip spawnClip;
     [SerializeField] private AudioClip pickupClip;
 
+    [SerializeField] private float amountToPickup;
+
     private AudioSource audioSource;
 
     private float timeSinceSpawned = 0;
     private bool isPickedUp;
 
-    private ObjectPool pickupHealthObjectPool;
+    private ObjectPool pickupObjectPool;
 
     private Awaitable routine;
 
-    private void Awake()
+    /*private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        pickupHealthObjectPool = Finder.PickupHealthObjectPool;
+        pickupObjectPool = Finder.GetPickup(gameObject.tag);
     }
 
     private void OnEnable()
@@ -35,7 +37,7 @@ public class PickupHealth : MonoBehaviour
         timeSinceSpawned += Time.deltaTime;
         if (timeSinceSpawned > livingTime)
         {
-            pickupHealthObjectPool.Release(gameObject);
+            pickupObjectPool.Release(gameObject);
             timeSinceSpawned = 0;
         }
 
@@ -47,7 +49,21 @@ public class PickupHealth : MonoBehaviour
         var player = other.GetComponent<Player>();
         if (player != null && !isPickedUp)
         {
-            // Must make the player get the bonus.
+            // Put the bonus here
+            if (gameObject.tag == "Ammo")
+            {
+                // Replace with bonus method
+                Debug.Log("You collected " + amountToPickup + " ammo.");
+            } else if (gameObject.tag == "Armor")
+            {
+                // Replace with bonus method
+                Debug.Log("You collected " + amountToPickup + " missiles.");
+            } else if (gameObject.tag == "Health")
+            {
+                // Replace with bonus method
+                Debug.Log("You collected " + amountToPickup + " health.");
+            }
+
             routine = PickupRoutine();
         }
     }
@@ -59,7 +75,7 @@ public class PickupHealth : MonoBehaviour
             isPickedUp = true;
             audioSource.PlayOneShot(pickupClip);
             await Awaitable.WaitForSecondsAsync(pickupClip.length);
-            pickupHealthObjectPool.Release(gameObject);
+            pickupObjectPool.Release(gameObject);
         }
-    }
+    }*/
 }
