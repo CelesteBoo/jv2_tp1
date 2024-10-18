@@ -439,7 +439,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6699140894155902513}
-  - component: {fileID: 5886120440566903348}
+  - component: {fileID: 7357578710402287952}
   - component: {fileID: 8559202265874379756}
   - component: {fileID: 4486338948864032386}
   m_Layer: 0
@@ -469,7 +469,7 @@ Transform:
   - {fileID: 1798825291920316469}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5886120440566903348
+--- !u!114 &7357578710402287952
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -478,13 +478,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6319660280540615819}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f827d6f509c0e24f84e64cba5858f99, type: 3}
+  m_Script: {fileID: 11500000, guid: ad4e310b9aab3344cb85eb7de35d8ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
   livingTime: 15
   spawnClip: {fileID: 8300000, guid: 00f25f135ee488c4591479876ca3f10c, type: 3}
   pickupClip: {fileID: 8300000, guid: 55bc10006917fbe46a89f70a93cd4e1f, type: 3}
+  amountToPickup: 1
 --- !u!65 &8559202265874379756
 BoxCollider:
   m_ObjectHideFlags: 0

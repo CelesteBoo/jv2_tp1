@@ -20,7 +20,7 @@ public class Pickup : MonoBehaviour
 
     private Awaitable routine;
 
-    /*private void Awake()
+    private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         pickupObjectPool = Finder.GetPickup(gameObject.tag);
@@ -77,5 +77,5 @@ public class Pickup : MonoBehaviour
             await Awaitable.WaitForSecondsAsync(pickupClip.length);
             pickupObjectPool.Release(gameObject);
         }
-    }*/
+    }
 }

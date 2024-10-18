@@ -784,7 +784,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7551864084136434475}
   - component: {fileID: 9074823419125614074}
-  - component: {fileID: 142219346129179205}
   - component: {fileID: 3111043352880797846}
   - component: {fileID: 2707726023019196132}
   m_Layer: 0
@@ -829,7 +828,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7171504067025027473}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad4e310b9aab3344cb85eb7de35d8ef7, type: 3}
   m_Name: 
@@ -839,22 +838,6 @@ MonoBehaviour:
   spawnClip: {fileID: 8300000, guid: 00f25f135ee488c4591479876ca3f10c, type: 3}
   pickupClip: {fileID: 8300000, guid: 55bc10006917fbe46a89f70a93cd4e1f, type: 3}
   amountToPickup: 8
---- !u!114 &142219346129179205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7171504067025027473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a023fd1d5c7c140408e32ff1b0fe8974, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 100
-  livingTime: 15
-  spawnClip: {fileID: 8300000, guid: 00f25f135ee488c4591479876ca3f10c, type: 3}
-  pickupClip: {fileID: 8300000, guid: 55bc10006917fbe46a89f70a93cd4e1f, type: 3}
 --- !u!65 &3111043352880797846
 BoxCollider:
   m_ObjectHideFlags: 0
