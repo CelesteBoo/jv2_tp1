@@ -3741,8 +3741,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   rotationSpeed: 0.1
+  jumpHeight: 125
   moveAction: {fileID: -1680190386980627800, guid: 04cc15706f63de54b99fedd88a3cbe71,
     type: 3}
+  jumpAction: {fileID: -2099379676528639254, guid: 04cc15706f63de54b99fedd88a3cbe71,
+    type: 3}
+  fireAction: {fileID: 1120369429361536294, guid: 04cc15706f63de54b99fedd88a3cbe71,
+    type: 3}
+  altFireAction: {fileID: -5664455585083810254, guid: 04cc15706f63de54b99fedd88a3cbe71,
+    type: 3}
+  maxRefireTimer: 0.2
 --- !u!1 &7158532013640517742
 GameObject:
   m_ObjectHideFlags: 0

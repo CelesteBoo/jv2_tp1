@@ -3,6 +3,7 @@ using UnityEngine;
 public class Finder : MonoBehaviour
 {
     private static ObjectPool alienObjectPool;
+    private static ObjectPool bulletPool;
 
     public static ObjectPool AlienObjectPool
     {
@@ -13,6 +14,18 @@ public class Finder : MonoBehaviour
                 alienObjectPool = GameObject.Find("AlienObjectPool").GetComponent<ObjectPool>();
             }
             return alienObjectPool;
+        }
+    }
+
+    public static ObjectPool BulletPool
+    {
+        get
+        {
+            if (bulletPool == null)
+            {
+               bulletPool = GameObject.Find("BulletPool").GetComponent<ObjectPool>();
+            }
+            return bulletPool;
         }
     }
 

@@ -2913,10 +2913,37 @@ PrefabInstance:
       propertyPath: m_StepOffset
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2365218036580928891, guid: 15f1abdea9520714bbabf636431e61cd,
+        type: 3}
+      propertyPath: m_MinMoveDistance
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 7091682358994165224, guid: 15f1abdea9520714bbabf636431e61cd,
         type: 3}
       propertyPath: m_Name
       value: SpaceMarine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187392090773789339, guid: 15f1abdea9520714bbabf636431e61cd,
+        type: 3}
+      propertyPath: fireAction
+      value: 
+      objectReference: {fileID: 1120369429361536294, guid: 04cc15706f63de54b99fedd88a3cbe71,
+        type: 3}
+    - target: {fileID: 8187392090773789339, guid: 15f1abdea9520714bbabf636431e61cd,
+        type: 3}
+      propertyPath: jumpHeight
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187392090773789339, guid: 15f1abdea9520714bbabf636431e61cd,
+        type: 3}
+      propertyPath: altFireAction
+      value: 
+      objectReference: {fileID: -5664455585083810254, guid: 04cc15706f63de54b99fedd88a3cbe71,
+        type: 3}
+    - target: {fileID: 8187392090773789339, guid: 15f1abdea9520714bbabf636431e61cd,
+        type: 3}
+      propertyPath: maxRefireTimer
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
