@@ -1,8 +1,6 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using UnityEngine.AI;
-using UnityEngine.EventSystems;
 
 public class Alien : MonoBehaviour
 {
@@ -10,6 +8,7 @@ public class Alien : MonoBehaviour
     [Header("Alien")]
     [SerializeField] private GameObject target;
     [SerializeField] private float floorLevel = -72;
+    [SerializeField] private int damage = 1;
 
     [Header("Pickup")]
     [SerializeField] private float pickupSpawnChance = 5;
@@ -62,16 +61,28 @@ public class Alien : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        // Bullets should also kill the aliens.
         var player = collision.gameObject.GetComponent<Player>();
         if (body.activeSelf && player != null)
         {
-            var index = Random.Range(0, 100);
-            if (index < pickupSpawnChance)
-                pickupSpawner.SpawnRandomPickup(transform.position);
+            if (gameObject.transform.position.y + 3 > player.gameObject.transform.position.y)
+                player.HurtPlayer(damage);
 
-            routine = KillRoutine();
+            Kill();
+            return;
         }
+
+        var bullet = collision.gameObject.GetComponent<Bullet>();
+        if (body.activeSelf && bullet != null)
+            Kill();
+    }
+
+    private void Kill()
+    {
+        var index = Random.Range(0, 100);
+        if (index < pickupSpawnChance)
+            pickupSpawner.SpawnRandomPickup(transform.position);
+
+        routine = KillRoutine();
     }
 
     private async Awaitable KillRoutine()

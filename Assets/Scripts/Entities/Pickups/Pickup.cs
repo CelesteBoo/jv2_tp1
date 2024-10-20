@@ -59,10 +59,7 @@ public class Pickup : MonoBehaviour
                 // Replace with bonus method
                 Debug.Log("You collected " + amountToPickup + " missiles.");
             } else if (gameObject.tag == "Health")
-            {
-                // Replace with bonus method
-                Debug.Log("You collected " + amountToPickup + " health.");
-            }
+                player.HealPlayer(((int)amountToPickup));
 
             routine = PickupRoutine();
         }

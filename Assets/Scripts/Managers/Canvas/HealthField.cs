@@ -14,7 +14,6 @@ public class Interface : MonoBehaviour
 
     private void Update()
     {
-        //text = interfaceManager.Health;
-        //text.text = string.Format(format, interfaceManager.Score);
+        text.text = interfaceManager.Health.ToString();
     }
 }

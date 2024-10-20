@@ -1,8 +1,8 @@
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private int damage = 1;
     [SerializeField] private float speed = 5000f;
 
     private ObjectPool bulletPool;
@@ -17,10 +17,27 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision != null) {
-            Debug.Log("boing");
+        var alien = collision.gameObject.GetComponent<Alien>();
+        if (alien != null)
+        {
             bulletPool.Release(gameObject);
+            return;
         }
+
+        var alienSpawner = collision.gameObject.GetComponent<AlienSpawner>();
+        if (alienSpawner != null)
+        {
+            alienSpawner.getDamage(damage);
+            bulletPool.Release(gameObject);
+            return;
+        }
+
+        var player = collision.gameObject.GetComponent<Player>();
+        if (player != null)
+            return;
+
+        if (collision != null)
+            bulletPool.Release(gameObject);
     }
 
     private void FixedUpdate()
@@ -30,12 +47,9 @@ public class Bullet : MonoBehaviour
 
     public void fireBullet(Vector3 playerPos, Vector3 playerDir)
     {
-        playerPos.y += 10;
-        var bullet = bulletPool.Get();
-        if (bullet != null)
-        {
-            bullet.transform.SetPositionAndRotation(playerPos, transform.rotation);
-        }
+        playerPos.y += 4;
+        transform.SetPositionAndRotation(playerPos, transform.rotation);
+
         direction = playerDir;
     }
 }

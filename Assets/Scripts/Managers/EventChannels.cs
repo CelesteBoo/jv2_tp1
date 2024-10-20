@@ -1,19 +1,30 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class EventChannels : MonoBehaviour
 {
-    [SerializeField] private UnityEvent onBallHitPin = new();
+    [SerializeField] private UnityEvent onGameWon = new();
+    [SerializeField] private UnityEvent onGameLost = new();
 
-    public event UnityAction OnBallHitPin
+    public event UnityAction OnGameWon
     {
-        add => onBallHitPin.AddListener(value);
-        remove => onBallHitPin.RemoveListener(value);
+        add => onGameWon.AddListener(value);
+        remove => onGameWon.RemoveListener(value);
     }
 
-    public void PublishBallHitPin()
+    public event UnityAction OnGameLost
     {
-        onBallHitPin.Invoke();
+        add => onGameLost.AddListener(value);
+        remove => onGameLost.RemoveListener(value);
+    }
+
+    public void PublishGameWon()
+    {
+        onGameWon.Invoke();
+    }
+
+    public void PublishGameLost()
+    {
+        onGameLost.Invoke();
     }
 }

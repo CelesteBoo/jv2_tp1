@@ -280,8 +280,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 6, y: 7, z: 6}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!114 &-5449991311700371956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,6 +296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 7091682358994165224, guid: 15f1abdea9520714bbabf636431e61cd, type: 3}
   floorLevel: -72
+  damage: 1
   pickupSpawnChance: 5
   deathClip: {fileID: 8300000, guid: 8f252cb39a2a2da44aefd3d09599af53, type: 3}
 --- !u!82 &-2854833699818309037

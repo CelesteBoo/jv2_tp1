@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
@@ -19,7 +18,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int maxNbMissiles;
     [SerializeField] private float maxRefireTimer = 0.1f;
     [SerializeField] private int maxHealth = 5;
-    [SerializeField] private float maxInvTimer = 2f;
+    [SerializeField] private float maxInvTimer = 0.5f;
 
     [Header("SFX")]
     [SerializeField] private AudioClip hurtClip;
@@ -50,7 +49,8 @@ public class Player : MonoBehaviour
         refireTimer = maxRefireTimer;
         nbMissiles = 0;
         health = maxHealth;
-        invTimer = maxInvTimer;
+        UpdateHealth();
+        invTimer = 0;
         bulletPool = Finder.BulletPool;
     }
 
@@ -89,8 +89,12 @@ public class Player : MonoBehaviour
 
         if(fireAction.action.IsPressed() && refireTimer < 0)
         {
-            Debug.Log(transform.forward);
-            bulletPool.Get().GetComponent<Bullet>().fireBullet(transform.position, transform.forward);
+            var bullet = bulletPool.Get();
+            if (bullet != null)
+            {
+                bullet.GetComponent<Bullet>().fireBullet(transform.position, transform.forward);
+            }
+
             if (fireClip != null)
                 audioSource.PlayOneShot(fireClip);
             refireTimer = maxRefireTimer;
@@ -102,6 +106,8 @@ public class Player : MonoBehaviour
             if (altFireClip != null)
                 audioSource.PlayOneShot(altFireClip);
         }
+
+        invTimer += Time.deltaTime;
 
         if (moveInput != Vector2.zero)
         {
@@ -116,28 +122,41 @@ public class Player : MonoBehaviour
         controller.Move((moveVector + jumpVector) * Time.deltaTime);
     }
 
-    private void hurtPlayer(int damage)
+    public void HurtPlayer(int damage)
     {
-        if (invTimer < 0)
+        if (invTimer > maxInvTimer)
         {
             health -= damage;
-            invTimer = maxInvTimer;
+            invTimer = 0;
 
             if (health <= 0)
-                killPlayer();
+                KillPlayer();
 
             if (hurtClip != null)
                 audioSource.PlayOneShot(hurtClip);
 
-            // envoyer event joueur hurt
+            UpdateHealth();
         }
     }
 
-    private void killPlayer()
+    public void HealPlayer(int healingPoints)
+    {
+        health += healingPoints;
+        UpdateHealth();
+    }
+
+    private void UpdateHealth()
+    {
+        Finder.InterfaceManager.UpdateHealth(health);
+    }
+
+    private void KillPlayer()
     {
         if (deathClip != null)
             audioSource.PlayOneShot(deathClip);
 
-        //envoyer event mort du joueur
+        Finder.EventChannels.PublishGameLost();
+
+        gameObject.SetActive(false);
     }
 }

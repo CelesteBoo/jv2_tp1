@@ -1,10 +1,9 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class PickupSpawner : MonoBehaviour
 {
-    [SerializeField] private float heightABoveAlien = 5;
+    [SerializeField] private float heightAboveAlien = 5;
 
     private ObjectPool pickupAmmoObjectPool;
     private ObjectPool pickupArmorObjectPool;
@@ -22,7 +21,7 @@ public class PickupSpawner : MonoBehaviour
         // Collectibles slowly spawn lower and lower.
 
         var index = Random.Range(0, 3);
-        position.y += heightABoveAlien;
+        position.y += heightAboveAlien;
         switch (index)
         {
             case 0:
